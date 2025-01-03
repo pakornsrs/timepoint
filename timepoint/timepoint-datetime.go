@@ -44,4 +44,16 @@ func GetDaySuffix(day int) string {
 	}
 }
 
-// trigger to github
+func FindMondayAndSundayDate(day, month, year int) (time.Time, time.Time) {
+
+	givenDate := time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
+	dayOfWeek := int(givenDate.Weekday())
+
+	mondayOffset := (dayOfWeek + 6) % 7
+	monday := givenDate.AddDate(0, 0, -mondayOffset)
+
+	sundayOffset := (7 - dayOfWeek) % 7
+	sunday := givenDate.AddDate(0, 0, sundayOffset)
+
+	return monday, sunday
+}
