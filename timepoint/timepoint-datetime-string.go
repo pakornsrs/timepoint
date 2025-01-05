@@ -34,9 +34,9 @@ func GetFullDisplayDateInEngFromUTC(utcTime time.Time) string {
 	return localTime.Format("02 January 2006")
 }
 
-func GetBangkokShortDisplayDateTimeSlashFormatFromUTC() string {
-	bkkTimeNow := BangkokTimeNow()
-	return bkkTimeNow.Format("02/01/2006 15:04")
+func GetBangkokShortDisplayDateTimeSlashFormatFromUTC(utcTime time.Time) string {
+	bkkTime := BangkokTimeFromUTC(utcTime)
+	return bkkTime.Format("02/01/2006 15:04")
 }
 
 func GetThaiMonthName(month time.Month) string {
